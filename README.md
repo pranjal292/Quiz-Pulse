@@ -47,6 +47,11 @@ Quiz-pulse/
 ├── app.js                       # Frontend JS: active quiz runner, timers, options, autosave
 ├── database.sql                 # MySQL schema + tables + sample data for phpMyAdmin
 ├── README.md                    # Project documentation
+├── screenshots/                 # Application preview screenshots
+│   ├── landing-page.png
+│   ├── exam-screen.png
+│   ├── live-room.png
+│   └── evaluation-results.png
 └── php/                         # Backend PHP folder (Procedural MySQLi)
     ├── db.php                   # Database connection ($conn) & session_start()
     ├── signup.php               # Teacher registration (password_hash)
@@ -70,81 +75,19 @@ Quiz-pulse/
 
 ---
 
-## Quick Setup Guide (XAMPP)
+## Screenshots
 
-### 1. Start Services in XAMPP
-1. Open the **XAMPP Control Panel**.
-2. Start both **Apache** and **MySQL** (both should turn green).
+### 1. Landing & Authentication Portal
+![Landing & Authentication Portal](screenshots/landing-page.png)
 
-### 2. Import Database
-1. Open your browser and navigate to: [http://localhost/phpmyadmin](http://localhost/phpmyadmin)
-2. Click the **Import** tab.
-3. Select `database.sql` from this repository.
-4. Click **Import** at the bottom. The `quizpulse` database and all required tables (`users`, `quizzes`, `questions`, `results`) will be created with sample testing data.
+### 2. Candidate Examination View
+![Candidate Examination View](screenshots/exam-screen.png)
 
-### 3. Deploy to `htdocs`
-1. Copy or clone this project folder into your XAMPP web directory:
-   ```text
-   C:\xampp\htdocs\quizpulse
-   ```
-2. Verify database settings in `php/db.php`:
-   ```php
-   $dbHost = "localhost";
-   $dbUser = "root";
-   $dbPass = "";
-   $dbName = "quizpulse";
-   ```
+### 3. Organizer Live Room & Real-Time Roster
+![Organizer Live Room & Real-Time Roster](screenshots/live-room.png)
 
-### 4. Open in Browser
-Open your browser and navigate to:
-👉 **`http://localhost/quizpulse/index.html`**
-
----
-
-## Test Accounts
-
-- **Organizer / Teacher Login**:
-  - Email: `teacher@test.com`
-  - Password: `password123`
-- **Sample Assessment Room**:
-  - Room Code: `101101`
-- **Candidate / Student Check-In**:
-  - Room Code: `101101`
-  - Student ID: `STU102`
-  - Password: `STU102` *(Rule: Password matches Student ID)*
-
----
-
-## Assessment JSON Schema (Organizer Studio)
-
-Assessments can be created in the Organizer Studio using the standardized JSON schema:
-
-```json
-{
-  "quizTitle": "Computer Science Assessment",
-  "timers": {
-    "entryWindowSeconds": 300,
-    "attemptDurationSeconds": 600
-  },
-  "settings": {
-    "postQuizVisibility": "full_analysis"
-  },
-  "questions": [
-    {
-      "id": "q1",
-      "questionText": "Which data structure follows the LIFO (Last-In First-Out) principle?",
-      "options": ["Queue", "Stack", "Binary Tree", "Linked List"],
-      "correctOptionIndex": 1
-    },
-    {
-      "id": "q2",
-      "questionText": "What is the worst-case time complexity of standard QuickSort?",
-      "options": ["O(n)", "O(n log n)", "O(n^2)", "O(1)"],
-      "correctOptionIndex": 2
-    }
-  ]
-}
-```
+### 4. Assessment Evaluation & Results Breakdown
+![Assessment Evaluation & Results Breakdown](screenshots/evaluation-results.png)
 
 ---
 
